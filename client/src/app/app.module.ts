@@ -24,16 +24,8 @@ const ROUTES: Routes = [
         loadChildren: () => import('./employees/employees.module').then(m => m.EmployeesModule)
       },
       {
-        path:'all',
-        component: EmployeeListComponent
-      },
-      {
         path:'new',
         component: EmployeeCreateComponent
-      },
-      {
-        path:':id',
-        component:EmployeeDetailComponent
       }
     ]
   }
