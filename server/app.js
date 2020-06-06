@@ -14,8 +14,9 @@ function transformText(data) {
             employeeObj.name = arrayOfValues[1];
             employeeObj.surname = arrayOfValues[2];
             employeeObj.address = arrayOfValues[3];
-            employeeObj.email = arrayOfValues[4];
-            employeeObj.birthday = arrayOfValues[5];
+            employeeObj.phone = arrayOfValues[4];
+            employeeObj.email = arrayOfValues[5];
+            employeeObj.birthdate = arrayOfValues[6];
         }
         finalData.push(employeeObj);
     })
@@ -29,7 +30,7 @@ fs.readFile('employees.txt','UTF-8', (e, data) => {
 
 });
 
-app.use('/', (req, res) => {
+app.use('/employees', (req, res) => {
     fs.readFile('employees.txt','UTF-8', (e, data) => {
         if (e) throw e;
         const formatedData = transformText(data);
