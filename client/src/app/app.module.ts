@@ -9,9 +9,12 @@ import { EmployeeCreateComponent } from './employees/employee-create/employee-cr
 import { EmployeeDetailComponent } from './employees/employee-detail/employee-detail.component';
 import { LayoutModule } from './layout/layout.module';
 import { AppLayoutComponent } from './layout/app-layout/app-layout.component';
+import { HttpClient, HttpHandler, HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule } from '@angular/material/table';
 
 const config = {
-  api: 'https://localhost:5555/'
+  api: 'http://localhost:5555/'
 };
 
 const ROUTES: Routes = [
@@ -37,7 +40,10 @@ const ROUTES: Routes = [
   imports: [
     BrowserModule,
     RouterModule.forRoot(ROUTES),
-    LayoutModule
+    LayoutModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatTableModule
   ],
   providers: [
     { provide: 'config', useValue: config },

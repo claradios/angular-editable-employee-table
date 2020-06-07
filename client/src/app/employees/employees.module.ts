@@ -6,6 +6,8 @@ import { EmployeeDetailComponent } from './employee-detail/employee-detail.compo
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule } from '@angular/material/table';
 
 const ROUTES: Routes = [
   {path: '', component: EmployeeListComponent},
@@ -19,7 +21,8 @@ const ROUTES: Routes = [
     CommonModule,
     ReactiveFormsModule,
     RouterModule.forChild(ROUTES),
-    HttpClientModule
+    HttpClientModule,
+    MatTableModule
   ]
 })
 export class EmployeesModule { }

@@ -13,21 +13,15 @@ export class EmployeesProxyService {
 
   constructor(private httpClient: HttpClient, @Inject('config') private config: any) { }
   getEmployees(): Observable<EmployeeDTO[]> {
-    return this.httpClient.get<EmployeeDTO[]>(this.config.api + 'Employee');
+    return this.httpClient.get<EmployeeDTO[]>(this.config.api + 'employees');
   }
   getEmployeeById(id): Observable<EmployeeDTO> {
-    return this.httpClient.get<EmployeeDTO>(this.config.api + 'Employee/' + id);
+    return this.httpClient.get<EmployeeDTO>(this.config.api + 'employees/' + id);
   }
   createEmployee(body): Observable<EmployeeDTO> {
-    return this.httpClient.post<EmployeeDTO>(this.config.api + 'Employee', body);
+    return this.httpClient.post<EmployeeDTO>(this.config.api + 'employees', body);
   }
-  // deleteEmployeeById(id): Observable<EmployeeDTO> {
-  //   return this.httpClient.delete<EmployeeDTO>(this.config.api + 'Employee/' + id);
-  // }
- 
-  // updateEmployee(id, body): Observable<EmployeeDTO> {
-  //   return this.httpClient.put<EmployeeDTO>(this.config.api + 'Employee/' + id, body);
-  // }
+  
 }
 
-// https://localhost:5555/
+// http://localhost:5555/
