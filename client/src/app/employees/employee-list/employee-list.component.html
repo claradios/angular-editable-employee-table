@@ -1,4 +1,7 @@
-
+<div>
+  <label>Filter</label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="example@mail.com">
+</div>
 <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
 
     <ng-container matColumnDef="id">

@@ -19,7 +19,7 @@ export class EmployeeListComponent implements OnInit {
  
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
-  dataSource: MatTableDataSource<Employee>;
+  dataSource: MatTableDataSource<any>;
   constructor(private store: EmployeesStoreService, private router:Router) { }
 
   ngOnInit(): void {
@@ -31,5 +31,14 @@ export class EmployeeListComponent implements OnInit {
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
     });
+   
+    //configure filter by email
+    this.dataSource.filterPredicate = (data: Employee, filter: string) => data.email.toLowerCase().indexOf(filter) !== -1;
+    
+  }
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase()
+    console.log(this.dataSource.filter)
   }
 }
