@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { Employee } from '../employee.model';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-employee-list',
@@ -16,7 +17,7 @@ export class EmployeeListComponent implements OnInit {
   ELEMENT_DATA: Employee[]
   displayedColumns: string[] = ['id', 'name', 'surname', 'phone','address','email','birthdate'];
  
-
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
   dataSource: MatTableDataSource<Employee>;
   constructor(private store: EmployeesStoreService, private router:Router) { }
@@ -28,6 +29,7 @@ export class EmployeeListComponent implements OnInit {
       this.ELEMENT_DATA = elem
       this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
       this.dataSource.sort = this.sort;
+      this.dataSource.paginator = this.paginator;
     });
   }
 }
