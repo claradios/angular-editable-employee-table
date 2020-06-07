@@ -25,7 +25,8 @@ const ROUTES: Routes = [
     RouterModule.forChild(ROUTES),
     HttpClientModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatSortModule
   ]
 })
 export class EmployeesModule { }
