@@ -1,19 +1,25 @@
 const fs = require('fs');
 const express = require('express');
+// const uuid = require('uuid/v4');
+const { uuid } = require('uuidv4');
+const bodyParser = require('body-parser')
 const app = express();
 var cors = require('cors');
-
+// https://stackoverflow.com/questions/33418777/node-js-write-a-line-into-a-txt-file
+// https://dev.to/sergchr/tricks-on-writing-appending-to-a-file-in-node-1hik
+// https://stackoverflow.com/questions/3459476/how-to-append-to-a-file-in-node/43370201#43370201
+// https://stackoverflow.com/questions/3459476/how-to-append-to-a-file-in-node
 app.use(cors())
 
 function transformText(data) {
     const textToArray = data.split("\n");
-    
+
     const finalData = []
-    textToArray.forEach((textLine)=>{
+    textToArray.forEach((textLine) => {
         let employeeObj = {}
         const arrayOfValues = textLine.split(",");
-        for (i=0; i< arrayOfValues.length; i++) {
-            employeeObj.id =arrayOfValues[0];
+        for (i = 0; i < arrayOfValues.length; i++) {
+            employeeObj.id = arrayOfValues[0];
             employeeObj.name = arrayOfValues[1];
             employeeObj.surname = arrayOfValues[2];
             employeeObj.address = arrayOfValues[3];
@@ -26,20 +32,73 @@ function transformText(data) {
     return finalData;
 }
 
-fs.readFile('employees.txt','UTF-8', (e, data) => {
-    if (e) throw e;
-    const formatedData = transformText(data);
-    console.log(formatedData)
+function findEmployeeById(data, id) {
+    return data.filter(elem => elem.id === id)[0]
+}
 
-});
-
-app.use('/employees', (req, res) => {
-    fs.readFile('employees.txt','UTF-8', (e, data) => {
+app.get('/employees', (req, res) => {
+    fs.readFile('employees.txt', 'UTF-8', (e, data) => {
         if (e) throw e;
         const formatedData = transformText(data);
-        res.send(formatedData);
+        if (!formatedData) {
+            res.sendStatus(404);
+        } else {
+            res.send(formatedData);
+        }
     });
 });
 
-app.listen(5555);
+app.get('/employees/:id', (req, res) => {
+    fs.readFile('employees.txt', 'UTF-8', (e, data) => {
+        if (e) throw e;
+        const id = req.params.id;
+        const formatedData = transformText(data);
+        const employee = findEmployeeById(formatedData, id)
+        if (!employee) {
+            res.sendStatus(404);
+        } else {
+            res.json(employee);
+        }
+    })
+});
 
+app.post('/employees', (req, res) => {
+    const employee = req.body;
+    console.log(req)
+    //Validation
+    if (
+        req === undefined
+        // typeof employee.name != 'string' || typeof employee.surname != 'string'
+        ) {
+        res.sendStatus(400);
+    } else {
+        //Create object with needed fields and assign id
+        // const newEmployee = {
+        //     id: uuid(),
+        //     name: employee.name,
+        //     surname: employee.surname,
+        //     address: employee.address,
+        //     phone: employee.phone,
+        //     email: employee.email,
+        //     birthdate: employee.birthdate
+        // };
+      
+
+        //Save resource
+        // const newEmployeeToStr = JSON.stringify(newEmployee)
+        // fs.appendFile('employees.txt', newEmployeeToStr, function (err) {
+        //     if (err) return console.log(err);
+        //     console.log('Appended!');
+        //  });
+        fs.appendFileSync('employees.txt', 'hello file');
+        //Return new resource
+        res.json({hello: 'hello'});
+    }
+});
+
+// fs.appendFile('server.log', 'string to append', function (err) {
+//     if (err) return console.log(err);
+//     console.log('Appended!');
+//  });
+
+app.listen(3000, () => { console.log('Server started in port 3000') });
