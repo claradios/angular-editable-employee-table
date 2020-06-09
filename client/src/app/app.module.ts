@@ -13,7 +13,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
 const config = {
-  api: 'http://localhost:5555/'
+  api: 'http://localhost:3000/'
 };
 
 const ROUTES: Routes = [
