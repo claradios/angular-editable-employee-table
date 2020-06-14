@@ -1,6 +1,17 @@
 
-<div *ngIf=employee>
-      <span>{{employee.id}}</span>
-      <h3>{{employee.name}} + {{employee.surname}}</h3>
-      <p>{{employee.birthdate}}</p>
-</div>
+<mat-card class="employee_card" *ngIf="employee; else noResultMsg" id="employee.id">
+    <mat-card-header>
+        <div mat-card-avatar class="employee-header-image"></div>
+        <mat-card-title>{{employee.name}} {{employee.surname}}</mat-card-title>
+        <mat-card-subtitle>Employee Id: {{employee.id}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <p>phone: {{employee.phone}}</p>
+        <p>email: {{employee.email}}</p>
+        <p>address: {{employee.address}}</p>
+        <p>birthdate: {{employee.birthdate}}</p>
+    </mat-card-content>
+</mat-card>
+<ng-template #noResultMsg>
+<p>Sorry, that employee is not available or doesn't exist.</p>
+</ng-template>

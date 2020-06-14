@@ -1,6 +1,6 @@
-<h1 class="title">GESTOR DE EMPLEADOS</h1>
-<nav class="nav">
-  <a [routerLink]="['/employees']"> home/ </a>
-  <a [routerLink]="['/new']"> añadir/ </a>
-</nav>
+<h1 class="title">EMPLOYEE MANAGER</h1>
+<mat-nav-list>
+  <a mat-list-item [routerLink]="['/employees']"><mat-icon aria-hidden="false" aria-label="home icon">home</mat-icon>  Home</a>
+  <a mat-list-item [routerLink]="['/new']"><mat-icon aria-hidden="false" aria-label="home icon">add_circle</mat-icon>  Add employee</a>
+</mat-nav-list>
 <router-outlet></router-outlet>

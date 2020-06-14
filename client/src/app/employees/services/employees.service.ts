@@ -42,9 +42,9 @@ export class EmployeesService {
   }
     createEmployee(body): Observable<Employee> {
     return this.proxy.createEmployee(body).pipe(
-      map((postDTO: EmployeeDTO) => {
-        const post: Employee = postDTO;
-        return post;
+      map((employeeDTO: EmployeeDTO) => {
+        const employee: Employee = employeeDTO;
+        return employee;
       })
     );
   }

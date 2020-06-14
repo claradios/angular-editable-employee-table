@@ -1,34 +1,27 @@
-<h2>ADD A NEW EMPLOYEE</h2>
-<!-- <form class="form">
-    <mat-form-field class="full-width">
-      <mat-label>Name</mat-label>
-      <input matInput placeholder="Ex. María" value="Sushi">
-    </mat-form-field>
+<mat-card>
+<mat-card-title>Employee info:</mat-card-title>
+<form [formGroup]="form">
 
-    <mat-form-field class="full-width">
-        <mat-label>Surname</mat-label>
-        <input matInput placeholder="Ex. Rodríguez" value="Sushi">
-    </mat-form-field>
+  <label for="name">Name:</label>
+  <input type="text" formControlName="name" id="name"/>
 
-    <mat-form-field class="full-width">
-        <mat-label>Address</mat-label>
-        <input matInput placeholder="Avenida Moscardó 33 28022 madrid" value="Sushi">
-    </mat-form-field>
+  <label for="surname">Surname:</label>
+  <input type="text" formControlName="surname" id="surname"/>
 
-    <mat-form-field class="full-width">
-        <mat-label>Email</mat-label>
-        <input matInput placeholder="mrod10@gmail.com" value="Sushi">
-    </mat-form-field>
+  <label for="address">Address:</label>
+  <input type="text" formControlName="address" id="address"/>
 
-    <mat-form-field class="full-width">
-        <mat-label>Phone</mat-label>
-        <input matInput placeholder="654-333-333" value="Sushi">
-    </mat-form-field>
+  <label for="phone">Phone:</label>
+  <input type="text" formControlName="phone" id="phone"/>
 
-    <mat-form-field class="full-width">
-        <mat-label>Birthday</mat-label>
-        <input matInput placeholder="10/12/1990" value="Sushi">
-    </mat-form-field>
-  
-  </form> -->
-  
+  <label for="email">Email:</label>
+  <input type="text" formControlName="email" id="email"/>
+
+  <label for="birthdate">Birthdate:</label>
+  <input type="text" formControlName="birthdate" id="birthdate"/>
+
+  <button (click)="onCreate($event)">Create</button>
+
+</form>
+<p *ngIf="info" class=info>{{info}}</p>
+</mat-card>

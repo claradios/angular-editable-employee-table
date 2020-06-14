@@ -1,7 +1,7 @@
-<div>
-  <label>Filter</label>
+<mat-card class="filter__section">
+  <mat-label>Search:</mat-label>
   <input matInput (keyup)="applyFilter($event)" placeholder="example@mail.com">
-</div>
+</mat-card>
 <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
 
     <ng-container matColumnDef="id">

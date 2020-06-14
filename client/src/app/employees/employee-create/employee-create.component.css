@@ -7,3 +7,28 @@
   .full-width {
     width: 100%;
   }
+
+  input {
+    display: block;
+  }
+
+  button {
+    margin-top: 15px;
+  }
+
+  input.ng-pending {
+    border:2px solid grey;
+  }
+
+  input.ng-valid {
+    border:2px solid green;
+  }
+
+  input.ng-invalid.ng-touched {
+    border:2px solid red;
+  }
+  
+  .info {
+    color: red;
+    margin: 8px;
+  }

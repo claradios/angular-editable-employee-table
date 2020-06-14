@@ -64,7 +64,7 @@ app.get('/employees/:id', (req, res) => {
 
 app.post('/employees', (req, res) => {
     const employee = req.body;
-    console.log(req)
+    console.log(employee)
     //Validation
     if (
         req === undefined
@@ -90,15 +90,11 @@ app.post('/employees', (req, res) => {
         //     if (err) return console.log(err);
         //     console.log('Appended!');
         //  });
-        fs.appendFileSync('employees.txt', 'hello file');
+        fs.appendFileSync('employees.txt','31,Clara,Dios,"1925 Mattson Street",503-431-9711,DonaldBSchmidt@rhyta.com,11/27/1952'+"\n");
         //Return new resource
         res.json({hello: 'hello'});
     }
 });
 
-// fs.appendFile('server.log', 'string to append', function (err) {
-//     if (err) return console.log(err);
-//     console.log('Appended!');
-//  });
 
 app.listen(3000, () => { console.log('Server started in port 3000') });

@@ -11,13 +11,13 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input'
-
+import { MatInputModule } from '@angular/material/input';
+import {MatCardModule} from '@angular/material/card';
+import {MatIconModule, MatIcon} from '@angular/material/icon';
 const ROUTES: Routes = [
   {path: '', component: EmployeeListComponent},
   {path: ':id', component: EmployeeDetailComponent}
 ];
-
 
 @NgModule({
   declarations: [EmployeeCreateComponent, EmployeeDetailComponent, EmployeeListComponent],
@@ -30,7 +30,9 @@ const ROUTES: Routes = [
     MatPaginatorModule,
     MatSortModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatCardModule,
+    MatIconModule
   ]
 })
 export class EmployeesModule { }

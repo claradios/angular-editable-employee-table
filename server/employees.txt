@@ -27,4 +27,5 @@
 27,Nancy,Villarreal,"4347 Todds Lane",210-465-6307,NancyNVillarreal@armyspy.com,9/21/1959
 28,Colby,Lincoln,"426 Bryan Street",336-284-1978,ColbyVLincoln@superrito.com,4/8/1996
 29,Robert,Retzlaff,"1858 Water Street",925-250-0317,RobertKRetzlaff@superrito.com,6/20/1951
-30,Donald,Schmidt,"1925 Mattson Street",503-431-9711,DonaldBSchmidt@rhyta.com,11/27/1952hello filehello file
+30,Donald,Schmidt,"1925 Mattson Street",503-431-9711,DonaldBSchmidt@rhyta.com,11/27/1952
+31,Clara,Dios,"1925 Mattson Street",503-431-9711,DonaldBSchmidt@rhyta.com,11/27/1952
