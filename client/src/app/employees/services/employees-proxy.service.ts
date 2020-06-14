@@ -23,5 +23,3 @@ export class EmployeesProxyService {
   }
   
 }
-
-// http://localhost:3000/

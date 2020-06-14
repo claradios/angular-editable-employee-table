@@ -33,10 +33,6 @@ function findEmployeeById(data, id) {
     return data.filter(elem => elem.id === id)[0]
 }
 
-// function objejctToTxt(data) {
-//     const {}
-// }
-
 app.get('/employees', (req, res) => {
     fs.readFile('employees.txt', 'UTF-8', (e, data) => {
         if (e) throw e;
@@ -64,25 +60,24 @@ app.get('/employees/:id', (req, res) => {
 });
 
 app.post('/employees', (req, res) => {
-    const employee = JSON.stringify(req.body);
-    console.log(employee)
+    const employee = req.body
     //Validation
     if (
-        req === undefined
-        // typeof employee.name != 'string' || typeof employee.surname != 'string'
+        typeof employee.name != 'string' || 
+        typeof employee.surname != 'string' ||
+        typeof employee.telephone != 'string' ||
+        typeof employee.address != 'string' ||
+        typeof employee.email != 'string' ||
+        typeof employee.birthDate != 'string' 
         ) {
         res.sendStatus(400);
     } else {
-        const body = req.body;
-        const bodyValuesArr = Object.values(body);
+        const bodyValuesArr = Object.values(employee);
         const newEmployee = uuid()+','+bodyValuesArr.join()
-        console.log(newEmployee)
-
-        //Save resource
-        // const newEmployee= '31,Clara,Dios,"1925 Mattson Street",503-431-9711,DonaldBSchmidt@rhyta.com,11/27/1952';
+    //Save resource
         fs.appendFileSync('employees.txt',"\n"+newEmployee);
-        //Return new resource
-        res.json(newEmployee);
+    //Return new resource
+        res.json(employee);
     }
 });
 
