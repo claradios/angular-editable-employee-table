@@ -28,4 +28,5 @@
 28,Colby,Lincoln,"426 Bryan Street",336-284-1978,ColbyVLincoln@superrito.com,4/8/1996
 29,Robert,Retzlaff,"1858 Water Street",925-250-0317,RobertKRetzlaff@superrito.com,6/20/1951
 30,Donald,Schmidt,"1925 Mattson Street",503-431-9711,DonaldBSchmidt@rhyta.com,11/27/1952
-31,Clara,Dios,"1925 Mattson Street",503-431-9711,DonaldBSchmidt@rhyta.com,11/27/1952
+6713e641-e6ba-4a04-b60c-ff4535765d0f,Clara Dios Diez,LOWE,avda el ferrol 33,636254375,clara.dios.diez@gmail.com,10/12/2020
+40ae0a0e-64dd-4c84-8946-bd93a880db49,Alberto,Sancyez,avda el ferrol 33,636254375,clara.dios.diez@gmail.com,10/20/2050

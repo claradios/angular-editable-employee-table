@@ -1,16 +1,13 @@
 const fs = require('fs');
 const express = require('express');
-// const uuid = require('uuid/v4');
 const { uuid } = require('uuidv4');
-const bodyParser = require('body-parser')
+const bodyParser = require("body-parser");
 const app = express();
 var cors = require('cors');
-// https://stackoverflow.com/questions/33418777/node-js-write-a-line-into-a-txt-file
-// https://dev.to/sergchr/tricks-on-writing-appending-to-a-file-in-node-1hik
-// https://stackoverflow.com/questions/3459476/how-to-append-to-a-file-in-node/43370201#43370201
-// https://stackoverflow.com/questions/3459476/how-to-append-to-a-file-in-node
-app.use(cors())
-
+const { Console } = require('console');
+app.use(cors());
+app.use(bodyParser.urlencoded({ extended: true}));
+app.use(bodyParser.json());
 function transformText(data) {
     const textToArray = data.split("\n");
 
@@ -35,6 +32,10 @@ function transformText(data) {
 function findEmployeeById(data, id) {
     return data.filter(elem => elem.id === id)[0]
 }
+
+// function objejctToTxt(data) {
+//     const {}
+// }
 
 app.get('/employees', (req, res) => {
     fs.readFile('employees.txt', 'UTF-8', (e, data) => {
@@ -63,7 +64,7 @@ app.get('/employees/:id', (req, res) => {
 });
 
 app.post('/employees', (req, res) => {
-    const employee = req.body;
+    const employee = JSON.stringify(req.body);
     console.log(employee)
     //Validation
     if (
@@ -72,27 +73,16 @@ app.post('/employees', (req, res) => {
         ) {
         res.sendStatus(400);
     } else {
-        //Create object with needed fields and assign id
-        // const newEmployee = {
-        //     id: uuid(),
-        //     name: employee.name,
-        //     surname: employee.surname,
-        //     address: employee.address,
-        //     phone: employee.phone,
-        //     email: employee.email,
-        //     birthdate: employee.birthdate
-        // };
-      
+        const body = req.body;
+        const bodyValuesArr = Object.values(body);
+        const newEmployee = uuid()+','+bodyValuesArr.join()
+        console.log(newEmployee)
 
         //Save resource
-        // const newEmployeeToStr = JSON.stringify(newEmployee)
-        // fs.appendFile('employees.txt', newEmployeeToStr, function (err) {
-        //     if (err) return console.log(err);
-        //     console.log('Appended!');
-        //  });
-        fs.appendFileSync('employees.txt','31,Clara,Dios,"1925 Mattson Street",503-431-9711,DonaldBSchmidt@rhyta.com,11/27/1952'+"\n");
+        // const newEmployee= '31,Clara,Dios,"1925 Mattson Street",503-431-9711,DonaldBSchmidt@rhyta.com,11/27/1952';
+        fs.appendFileSync('employees.txt',"\n"+newEmployee);
         //Return new resource
-        res.json({hello: 'hello'});
+        res.json(newEmployee);
     }
 });
 
