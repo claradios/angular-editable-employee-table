@@ -30,3 +30,8 @@
 30,Donald,Schmidt,"1925 Mattson Street",503-431-9711,DonaldBSchmidt@rhyta.com,11/27/1952
 6713e641-e6ba-4a04-b60c-ff4535765d0f,Clara Dios Diez,LOWE,avda el ferrol 33,636254375,clara.dios.diez@gmail.com,10/12/2020
 40ae0a0e-64dd-4c84-8946-bd93a880db49,Alberto,Sancyez,avda el ferrol 33,636254375,clara.dios.diez@gmail.com,10/20/2050
+11919579-31e1-480e-be8f-debc5aba58f8,Clara Dios Diez,LOWE,avda el ferrol 33,636254375,clara.dios.diez@gmail.com,10/12/2020
+8753a470-2bfe-4a8e-98ac-0d00b84a4fee,Fernando,lala,lala,lala,lala,lala
+9e6ed575-0dea-41fb-acfe-af5581800d62,Marta,Sanchez,Canarias,234524562456,acadf@sanchez,10/12/13
+6f3946f6-4917-4a6f-bcd4-5b2fbfd63202,Clara Dios Diez,LOWE,avda el ferrol 33,636254375,clara.dios.diez@gmail.com,10/12/2020
+bfe8c72c-eaa4-44f0-9f14-4eb47da97c64,Clara Dios Diez,adc,avda el ferrol 33,636254375,sdcv,sdc

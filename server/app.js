@@ -65,10 +65,10 @@ app.post('/employees', (req, res) => {
     if (
         typeof employee.name != 'string' || 
         typeof employee.surname != 'string' ||
-        typeof employee.telephone != 'string' ||
+        typeof employee.phone != 'string' ||
         typeof employee.address != 'string' ||
         typeof employee.email != 'string' ||
-        typeof employee.birthDate != 'string' 
+        typeof employee.birthdate != 'string' 
         ) {
         res.sendStatus(400);
     } else {
@@ -77,7 +77,8 @@ app.post('/employees', (req, res) => {
     //Save resource
         fs.appendFileSync('employees.txt',"\n"+newEmployee);
     //Return new resource
-        res.json(employee);
+        const formatedEmployee = transformText(newEmployee);
+        res.send(formatedEmployee[0]);
     }
 });
 

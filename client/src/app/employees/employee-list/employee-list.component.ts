@@ -39,7 +39,6 @@ export class EmployeeListComponent implements OnInit {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase()
-    console.log(this.dataSource.filter)
   }
   showDetail(id) {
     this.router.navigate(['employees/' + id]);
