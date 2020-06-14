@@ -41,4 +41,7 @@ export class EmployeeListComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase()
     console.log(this.dataSource.filter)
   }
+  showDetail(id) {
+    this.router.navigate(['employees/' + id]);
+  }
 }
